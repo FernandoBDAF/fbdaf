@@ -1,0 +1,107 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* ===== Base ===== */
+    --color-bg: #0A0E14;
+    --color-surface: #141B22;
+    --color-border: #1E2A36;
+  
+    /* ===== Text ===== */
+    --color-text-primary: #F2F5FA;
+    --color-text-secondary: #A4B1C0;
+    --color-text-muted: #7E8B9C;
+  
+    /* ===== Accent ===== */
+    --color-accent: #3BA9FF;
+    --color-accent-hover: #6DCEFF;
+    --color-accent-gradient-start: #3BA9FF;
+    --color-accent-gradient-end: #6DCEFF;
+  
+    /* ===== Code / Details ===== */
+    --color-code: #B9F28A;
+    --color-link: #3BA9FF;
+    --color-link-hover: #6DCEFF;
+  
+    /* ===== Status ===== */
+    --color-success: #7CE38B;
+    --color-warning: #FFD66B;
+    --color-error: #FF6E6E;
+    --color-info: #6DCEFF;
+  
+    /* ===== Shadows / Radii ===== */
+    --shadow-elevation-low: 0 2px 6px rgba(0, 0, 0, 0.25);
+    --shadow-elevation-high: 0 4px 20px rgba(0, 0, 0, 0.35);
+  
+    --radius-card: 1rem;
+    --radius-button: 0.75rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-bg text-text-primary antialiased;
+    font-family: "Inter", "Inter Fallback", system-ui, -apple-system, sans-serif;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  ::selection {
+    background-color: var(--color-accent);
+    color: var(--color-text-primary);
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--color-bg);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-border);
+    border-radius: 5px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-surface);
+  }
+}
+
+@layer components {
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.5s ease-out;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
