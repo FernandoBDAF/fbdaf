@@ -40,6 +40,7 @@ export default function BlogClientPage() {
                 })
               }
             >
+              
               <Card className="group p-7 transition-all duration-300 hover:border-accent hover:shadow-lg sm:p-8 md:p-10">
                 <h2 className="mb-4 text-balance text-2xl font-bold text-foreground transition-colors group-hover:text-accent md:text-3xl lg:text-4xl">
                   {post.title}
