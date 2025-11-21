@@ -1,14 +1,14 @@
-"use client"
+'use client'
 
-import { Button } from "@/components/ui/button"
-import { ArrowRight, Sparkles } from "lucide-react"
-import Link from "next/link"
-import { motion } from "framer-motion"
-import { trackEvent } from "@/lib/tracking"
+import { Button } from '@/components/ui/button'
+import { ArrowRight, Sparkles } from 'lucide-react'
+import Link from 'next/link'
+import { motion } from 'framer-motion'
+import { trackEvent } from '@/lib/tracking'
 
 export function Hero() {
   const handleCTAClick = (cta: string) => {
-    trackEvent({ event: "hero_cta_click", cta })
+    trackEvent({ event: 'hero_cta_click', cta })
   }
 
   const containerVariants = {
@@ -29,7 +29,7 @@ export function Hero() {
       y: 0,
       transition: {
         duration: 0.6,
-        ease: "easeOut",
+        ease: 'easeOut',
       },
     },
   }
@@ -54,7 +54,7 @@ export function Hero() {
         transition={{
           duration: 4,
           repeat: Number.POSITIVE_INFINITY,
-          ease: "easeInOut",
+          ease: 'easeInOut',
         }}
       />
 
@@ -71,7 +71,7 @@ export function Hero() {
             variants={itemVariants}
           >
             <Sparkles className="h-4 w-4 text-accent" />
-            <span>Full-Stack Developer</span>
+            <span>Agentic & Full-Stack</span>
           </motion.div>
 
           {/* Main heading */}
@@ -79,7 +79,8 @@ export function Hero() {
             className="text-balance text-4xl font-bold leading-tight text-text-primary sm:text-5xl md:text-6xl lg:text-7xl"
             variants={itemVariants}
           >
-            Software Engineer <span className="text-accent">Powered by AI</span>
+            Software Engineer{' '}
+            <span className="text-accent">Augmented by AI</span>
           </motion.h1>
 
           {/* Subheading */}
@@ -87,31 +88,16 @@ export function Hero() {
             className="mx-auto max-w-3xl text-pretty text-lg leading-relaxed text-text-muted sm:text-xl md:text-2xl"
             variants={itemVariants}
           >
-            Wearing many hats, currently optimizing my development workflow with AI tools. From researching to planning
-            to coding to deploying.
+            Exploring the era where knowledge is always accessible. I see AI as
+            a cognitive layer above code, allowing imagination and a solid grasp
+            of the foundations to be all you need.
           </motion.p>
 
           {/* CTA Buttons */}
           <motion.div
             className="flex flex-col items-center justify-center gap-4 pt-6 sm:flex-row"
             variants={itemVariants}
-          >
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Link href="/projects" onClick={() => handleCTAClick("view_projects")}>
-                <Button size="lg" className="group">
-                  View Projects
-                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </Button>
-              </Link>
-            </motion.div>
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Link href="/contact" onClick={() => handleCTAClick("contact")}>
-                <Button size="lg" variant="outline" className="group bg-transparent">
-                  Get in Touch
-                </Button>
-              </Link>
-            </motion.div>
-          </motion.div>
+          ></motion.div>
         </motion.div>
       </div>
     </section>

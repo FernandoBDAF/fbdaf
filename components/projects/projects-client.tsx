@@ -1,10 +1,10 @@
-"use client"
+'use client'
 
-import { useState, useMemo } from "react"
-import type { Project } from "@/lib/types"
-import { ProjectCard } from "@/components/ui/project-card"
-import { Badge } from "@/components/ui/badge"
-import { cn } from "@/lib/utils"
+import { useState, useMemo } from 'react'
+import type { Project } from '@/lib/types'
+import { ProjectCard } from '@/components/ui/project-card'
+import { Badge } from '@/components/ui/badge'
+import { cn } from '@/lib/utils'
 
 interface ProjectsClientProps {
   projects: Project[]
@@ -31,14 +31,18 @@ export function ProjectsClient({ projects }: ProjectsClientProps) {
   return (
     <div className="space-y-10">
       {/* Tag Filter */}
-      <div className="space-y-5">
-        <h2 className="text-sm font-semibold uppercase tracking-wide text-text-muted">Filter by Technology</h2>
+      {/* <div className="space-y-5">
+        <h2 className="text-sm font-semibold uppercase tracking-wide text-text-muted">
+          Filter by Technology
+        </h2>
         <div className="flex flex-wrap gap-2.5">
           <Badge
-            variant={selectedTag === null ? "default" : "outline"}
+            variant={selectedTag === null ? 'default' : 'outline'}
             className={cn(
-              "cursor-pointer transition-all",
-              selectedTag === null ? "bg-accent text-accent-foreground" : "hover:bg-accent/10",
+              'cursor-pointer transition-all',
+              selectedTag === null
+                ? 'bg-accent text-accent-foreground'
+                : 'hover:bg-accent/10'
             )}
             onClick={() => setSelectedTag(null)}
           >
@@ -49,10 +53,12 @@ export function ProjectsClient({ projects }: ProjectsClientProps) {
             return (
               <Badge
                 key={tag}
-                variant={selectedTag === tag ? "default" : "outline"}
+                variant={selectedTag === tag ? 'default' : 'outline'}
                 className={cn(
-                  "cursor-pointer transition-all",
-                  selectedTag === tag ? "bg-accent text-accent-foreground" : "hover:bg-accent/10",
+                  'cursor-pointer transition-all',
+                  selectedTag === tag
+                    ? 'bg-accent text-accent-foreground'
+                    : 'hover:bg-accent/10'
                 )}
                 onClick={() => setSelectedTag(tag)}
               >
@@ -61,7 +67,7 @@ export function ProjectsClient({ projects }: ProjectsClientProps) {
             )
           })}
         </div>
-      </div>
+      </div> */}
 
       {/* Projects Grid */}
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:gap-10">
@@ -73,7 +79,9 @@ export function ProjectsClient({ projects }: ProjectsClientProps) {
       {/* No Results Message */}
       {filteredProjects.length === 0 && (
         <div className="py-16 text-center">
-          <p className="text-base text-text-muted sm:text-lg">No projects found with the selected filter.</p>
+          <p className="text-base text-text-muted sm:text-lg">
+            No projects found with the selected filter.
+          </p>
         </div>
       )}
     </div>

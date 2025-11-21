@@ -1,11 +1,11 @@
-"use client"
+'use client'
 
-import type { Project } from "@/lib/types"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { Github, ExternalLink } from "lucide-react"
-import Image from "next/image"
-import { trackEvent } from "@/lib/tracking"
+import type { Project } from '@/lib/types'
+import { Badge } from '@/components/ui/badge'
+import { Button } from '@/components/ui/button'
+import { Github, ExternalLink } from 'lucide-react'
+import Image from 'next/image'
+import { trackEvent } from '@/lib/tracking'
 
 interface ProjectCardProps {
   project: Project
@@ -13,7 +13,11 @@ interface ProjectCardProps {
 
 export function ProjectCard({ project }: ProjectCardProps) {
   const handleProjectOpen = (source: string) => {
-    trackEvent({ event: "project_open", slug: project.id, source })
+    trackEvent({
+      event: 'project_open',
+      slug: project.id,
+      source,
+    })
   }
 
   return (
@@ -21,7 +25,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
       {/* Project Image */}
       <div className="relative aspect-video overflow-hidden bg-muted">
         <Image
-          src={project.image || "/placeholder.svg"}
+          src={project.image || '/placeholder.svg'}
           alt={project.title}
           fill
           className="object-cover transition-transform duration-300 group-hover:scale-105"
@@ -34,7 +38,9 @@ export function ProjectCard({ project }: ProjectCardProps) {
           <h3 className="text-xl font-semibold leading-tight text-text-primary transition-colors group-hover:text-accent sm:text-2xl">
             {project.title}
           </h3>
-          <p className="text-sm leading-relaxed text-text-muted sm:text-base">{project.description}</p>
+          <p className="text-sm leading-relaxed text-text-muted sm:text-base">
+            {project.description}
+          </p>
         </div>
 
         {/* Tags */}
@@ -58,16 +64,25 @@ export function ProjectCard({ project }: ProjectCardProps) {
               href={project.github}
               target="_blank"
               rel="noopener noreferrer"
-              onClick={() => handleProjectOpen("github")}
+              onClick={() => handleProjectOpen('github')}
             >
-              <Button variant="outline" size="sm" className="gap-2 bg-transparent">
+              <Button
+                variant="outline"
+                size="sm"
+                className="gap-2 bg-transparent"
+              >
                 <Github className="h-4 w-4" />
                 Code
               </Button>
             </a>
           )}
           {project.demo && (
-            <a href={project.demo} target="_blank" rel="noopener noreferrer" onClick={() => handleProjectOpen("demo")}>
+            <a
+              href={project.demo}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => handleProjectOpen('demo')}
+            >
               <Button size="sm" className="gap-2">
                 <ExternalLink className="h-4 w-4" />
                 Demo

@@ -1,10 +1,10 @@
-"use client"
-import { siteConfig } from "@/lib/metadata"
-import { trackEvent } from "@/lib/tracking"
+'use client'
+import { siteConfig } from '@/lib/metadata'
+import { trackEvent } from '@/lib/tracking'
 
 export function Footer() {
-  const handleContactClick = (method: "linkedin" | "github") => {
-    trackEvent({ event: "contact_click", method })
+  const handleContactClick = (method: 'linkedin' | 'github') => {
+    trackEvent({ event: 'contact_click', method })
   }
 
   return (

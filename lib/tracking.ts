@@ -1,4 +1,14 @@
-type TrackingEvent = { event: 'hero_cta_click'; cta: string } | { event: 'nav_click'; target: string } | { event: 'project_open'; slug: string; source: string } | { event: 'contact_click'; method: 'email' | 'linkedin' | 'github' } | { event: 'external_link'; destination: string }
+type TrackingEvent =
+  | { event: 'hero_cta_click'; cta: string }
+  | { event: 'nav_click'; target: string }
+  | { event: 'project_open'; slug: string; source: string }
+  | {
+      event: 'contact_click'
+      method: 'email' | 'linkedin' | 'github'
+    }
+  | { event: 'external_link'; destination: string }
+  | { event: 'blog_post_view'; post: string }
+  | { event: 'blog_post_click'; post: string }
 
 export function trackEvent(eventData: TrackingEvent): void {
   // Placeholder for PostHog/analytics integration

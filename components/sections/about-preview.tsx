@@ -1,17 +1,17 @@
-"use client"
+'use client'
 
-import { Button } from "@/components/ui/button"
-import { Timeline } from "@/components/ui/timeline"
-import { ArrowRight } from "lucide-react"
-import Link from "next/link"
-import { motion } from "framer-motion"
-import { useInView } from "framer-motion"
-import { useRef } from "react"
-import { experience } from "@/lib/data/experience"
+import { Timeline } from '@/components/ui/timeline'
+import { motion } from 'framer-motion'
+import { useInView } from 'framer-motion'
+import { useRef } from 'react'
+import { experience } from '@/lib/data/experience'
 
 export function AboutPreview() {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: "-100px" })
+  const isInView = useInView(ref, {
+    once: true,
+    margin: '-100px',
+  })
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -31,23 +31,23 @@ export function AboutPreview() {
       y: 0,
       transition: {
         duration: 0.6,
-        ease: "easeOut",
+        ease: 'easeOut',
       },
     },
   }
 
-  const aiEngineeringItems = [
-    "LLM integration and prompt engineering",
-    "Multi-agent system design",
-    "AI workflow orchestration",
-    "Vector databases and embeddings",
+  const fullStackItems = [
+    'Next.js and React applications',
+    'TypeScript, Node.js, and modular API ecosystems',
+    'Cloud-ready architectures built for clarity and maintainability',
+    'End-to-end product development with AI as co-designer',
   ]
 
-  const fullStackItems = [
-    "Next.js and React applications",
-    "TypeScript and modern JavaScript",
-    "API design and backend systems",
-    "Cloud infrastructure and deployment",
+  const aiEngineeringItems = [
+    'Agentic pipelines and workflow automation',
+    'Knowledge systems: embeddings, vector stores, retrieval',
+    'Designing AI reasoning loops and orchestration layers',
+    'Integrating MCP and modern multimodal tooling',
   ]
 
   return (
@@ -62,21 +62,42 @@ export function AboutPreview() {
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-3xl font-bold text-text-primary md:text-4xl lg:text-5xl">About Me</h2>
+            <h2 className="text-3xl font-bold text-text-primary md:text-4xl lg:text-5xl">
+              About Me
+            </h2>
             <motion.div
               className="space-y-6 text-base leading-relaxed text-text-muted sm:text-lg md:text-xl"
               variants={containerVariants}
               initial="hidden"
-              animate={isInView ? "visible" : "hidden"}
+              animate={isInView ? 'visible' : 'hidden'}
             >
               <motion.p variants={itemVariants}>
-                I&apos;m an AI Engineer and Full-Stack Developer passionate about building intelligent systems that
-                solve real-world problems. With expertise spanning machine learning, modern web frameworks, and cloud
-                infrastructure, I create solutions that are both powerful and elegant.
+                I didn’t begin my journey in software - I began in science,
+                where I learned to think in systems. Entrepreneurship came next,
+                where I learned to build things that survive in the real world.
+                Software came later, when I realized I needed to turn ideas into
+                products myself.
               </motion.p>
               <motion.p variants={itemVariants}>
-                My work focuses on AI automation, agent orchestration, and developer tooling. I believe in writing clean
-                code, building scalable architectures, and delivering exceptional user experiences.
+                Along the way, AI changed the landscape. It didn’t replace the
+                need to understand code - it expanded what a single person could
+                build. AI became a second cognitive layer, a new interface above
+                programming languages where I could describe, reason, and
+                prototype entire systems with far more clarity and speed.
+              </motion.p>
+              <motion.p variants={itemVariants}>
+                That shift is where I found myself.
+              </motion.p>
+              <motion.p variants={itemVariants}>
+                Today, I work at the intersection of AI orchestration, agentic
+                systems, and full-stack engineering. I see coding as part
+                technical craft, part architectural thinking, and part
+                conversation - a blend that lets one person design, plan, and
+                ship complex ideas end-to-end.
+              </motion.p>
+              <motion.p variants={itemVariants}>
+                My work is about exploring what modern software creation looks
+                like when curiosity, structure, and AI work together.
               </motion.p>
             </motion.div>
           </motion.div>
@@ -88,19 +109,25 @@ export function AboutPreview() {
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <h3 className="text-2xl font-bold text-text-primary md:text-3xl">What I Do</h3>
+            {/* <h3 className="text-2xl font-bold text-text-primary md:text-3xl">What I Do</h3> */}
             <div className="grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-12">
-              {/* AI Engineering */}
+              {/* Full-Stack Development */}
               <motion.div
                 className="space-y-4"
                 variants={containerVariants}
                 initial="hidden"
-                animate={isInView ? "visible" : "hidden"}
+                animate={isInView ? 'visible' : 'hidden'}
               >
-                <h4 className="text-xl font-semibold text-text-primary md:text-2xl">AI Engineering</h4>
+                <h4 className="text-xl font-semibold text-text-primary md:text-2xl">
+                  Full-Stack Development
+                </h4>
                 <ul className="space-y-3 text-base text-text-muted sm:text-lg">
-                  {aiEngineeringItems.map((item, index) => (
-                    <motion.li key={index} className="flex items-start" variants={itemVariants}>
+                  {fullStackItems.map((item, index) => (
+                    <motion.li
+                      key={index}
+                      className="flex items-start"
+                      variants={itemVariants}
+                    >
                       <span className="mr-3 mt-1 text-accent">•</span>
                       <span>{item}</span>
                     </motion.li>
@@ -108,17 +135,23 @@ export function AboutPreview() {
                 </ul>
               </motion.div>
 
-              {/* Full-Stack Development */}
+              {/* AI Engineering */}
               <motion.div
                 className="space-y-4"
                 variants={containerVariants}
                 initial="hidden"
-                animate={isInView ? "visible" : "hidden"}
+                animate={isInView ? 'visible' : 'hidden'}
               >
-                <h4 className="text-xl font-semibold text-text-primary md:text-2xl">Full-Stack Development</h4>
+                <h4 className="text-xl font-semibold text-text-primary md:text-2xl">
+                  AI Engineering
+                </h4>
                 <ul className="space-y-3 text-base text-text-muted sm:text-lg">
-                  {fullStackItems.map((item, index) => (
-                    <motion.li key={index} className="flex items-start" variants={itemVariants}>
+                  {aiEngineeringItems.map((item, index) => (
+                    <motion.li
+                      key={index}
+                      className="flex items-start"
+                      variants={itemVariants}
+                    >
                       <span className="mr-3 mt-1 text-accent">•</span>
                       <span>{item}</span>
                     </motion.li>
@@ -135,25 +168,16 @@ export function AboutPreview() {
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            <h3 className="text-2xl font-bold text-text-primary md:text-3xl">Professional Journey</h3>
-            <motion.div variants={containerVariants} initial="hidden" animate={isInView ? "visible" : "hidden"}>
-              <Timeline items={experience.slice(0, 3)} />
+            <h3 className="text-2xl font-bold text-text-primary md:text-3xl">
+              Professional Journey
+            </h3>
+            <motion.div
+              variants={containerVariants}
+              initial="hidden"
+              animate={isInView ? 'visible' : 'hidden'}
+            >
+              <Timeline items={experience} />
             </motion.div>
-          </motion.div>
-
-          {/* CTA */}
-          <motion.div
-            className="pt-4"
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-          >
-            <Link href="/about">
-              <Button className="group">
-                Learn More About Me
-                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </Button>
-            </Link>
           </motion.div>
         </div>
       </div>

@@ -9,12 +9,20 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'FernandoBDAF - AI Engineer & Full-Stack Developer',
-  description: 'AI Engineer specializing in intelligent systems, automation, and modern web development. Building the future with AI-driven solutions.',
-  keywords: ['AI Engineer', 'Full-Stack Developer', 'Machine Learning', 'AI Automation', 'Web Development'],
+  description:
+    'AI Engineer specializing in intelligent systems, automation, and modern web development. Building the future with AI-driven solutions.',
+  keywords: [
+    'AI Engineer',
+    'Full-Stack Developer',
+    'Machine Learning',
+    'AI Automation',
+    'Web Development',
+  ],
   authors: [{ name: 'FernandoBDAF' }],
   openGraph: {
     title: 'FernandoBDAF - AI Engineer & Full-Stack Developer',
-    description: 'AI Engineer specializing in intelligent systems, automation, and modern web development.',
+    description:
+      'AI Engineer specializing in intelligent systems, automation, and modern web development.',
     type: 'website',
   },
   generator: 'v0.app',

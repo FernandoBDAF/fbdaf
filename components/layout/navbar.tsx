@@ -1,22 +1,22 @@
-"use client"
+'use client'
 
-import Link from "next/link"
-import { usePathname } from "next/navigation"
-import { navItems } from "@/lib/metadata"
-import { cn } from "@/lib/utils"
-import { trackEvent } from "@/lib/tracking"
-import { Menu, X } from "lucide-react"
-import { useState } from "react"
-import { motion, AnimatePresence } from "framer-motion"
-import { siteConfig } from "@/lib/metadata"
-import { Github, Linkedin } from "lucide-react"
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+import { navItems } from '@/lib/metadata'
+import { cn } from '@/lib/utils'
+import { trackEvent } from '@/lib/tracking'
+import { Menu, X } from 'lucide-react'
+import { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { siteConfig } from '@/lib/metadata'
+import { Github, Linkedin } from 'lucide-react'
 
 export function Navbar() {
   const pathname = usePathname()
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   const handleNavClick = (href: string) => {
-    trackEvent({ event: "nav_click", target: href })
+    trackEvent({ event: 'nav_click', target: href })
     setMobileMenuOpen(false)
   }
 
@@ -26,17 +26,17 @@ export function Navbar() {
       height: 0,
       transition: {
         duration: 0.3,
-        ease: "easeInOut",
+        ease: 'easeInOut',
         staggerChildren: 0.05,
         staggerDirection: -1,
       },
     },
     open: {
       opacity: 1,
-      height: "auto",
+      height: 'auto',
       transition: {
         duration: 0.3,
-        ease: "easeInOut",
+        ease: 'easeInOut',
         staggerChildren: 0.05,
         delayChildren: 0.1,
       },
@@ -60,8 +60,8 @@ export function Navbar() {
     },
   }
 
-  const handleContactClick = (method: "linkedin" | "github") => {
-    trackEvent({ event: "contact_click", method })
+  const handleContactClick = (method: 'linkedin' | 'github') => {
+    trackEvent({ event: 'contact_click', method })
   }
 
   return (
@@ -73,7 +73,7 @@ export function Navbar() {
             target="_blank"
             rel="noopener noreferrer"
             className="text-text-muted transition-colors hover:text-accent"
-            onClick={() => handleContactClick("github")}
+            onClick={() => handleContactClick('github')}
             aria-label="GitHub"
           >
             <Github size={20} />
@@ -83,7 +83,7 @@ export function Navbar() {
             target="_blank"
             rel="noopener noreferrer"
             className="text-text-muted transition-colors hover:text-accent"
-            onClick={() => handleContactClick("linkedin")}
+            onClick={() => handleContactClick('linkedin')}
             aria-label="LinkedIn"
           >
             <Linkedin size={20} />
@@ -97,10 +97,10 @@ export function Navbar() {
               key={item.href}
               href={item.href}
               className={cn(
-                "relative py-2 text-sm font-medium transition-colors hover:text-accent",
+                'relative py-2 text-sm font-medium transition-colors hover:text-accent',
                 pathname === item.href
-                  ? "text-text-primary after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-accent"
-                  : "text-text-muted",
+                  ? 'text-text-primary after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-accent'
+                  : 'text-text-muted'
               )}
               onClick={() => handleNavClick(item.href)}
             >
@@ -116,7 +116,10 @@ export function Navbar() {
           aria-label="Toggle menu"
           whileTap={{ scale: 0.95 }}
         >
-          <motion.div animate={{ rotate: mobileMenuOpen ? 180 : 0 }} transition={{ duration: 0.3 }}>
+          <motion.div
+            animate={{ rotate: mobileMenuOpen ? 180 : 0 }}
+            transition={{ duration: 0.3 }}
+          >
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </motion.div>
         </motion.button>
@@ -138,8 +141,10 @@ export function Navbar() {
                   <Link
                     href={item.href}
                     className={cn(
-                      "block py-3 text-base font-medium transition-colors hover:text-accent",
-                      pathname === item.href ? "text-text-primary" : "text-text-muted",
+                      'block py-3 text-base font-medium transition-colors hover:text-accent',
+                      pathname === item.href
+                        ? 'text-text-primary'
+                        : 'text-text-muted'
                     )}
                     onClick={() => handleNavClick(item.href)}
                   >

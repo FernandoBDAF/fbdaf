@@ -1,12 +1,12 @@
-"use client"
+'use client'
 
-import Link from "next/link"
-import { blogPosts } from "@/lib/data/blog"
-import { Badge } from "@/components/ui/badge"
-import { Card } from "@/components/ui/card"
-import { Calendar, Clock } from "lucide-react"
-import { trackEvent } from "@/lib/tracking"
-import ComingSoon from "@/components/ui/coming-soon"
+import Link from 'next/link'
+import { blogPosts } from '@/lib/data/blog'
+import { Badge } from '@/components/ui/badge'
+import { Card } from '@/components/ui/card'
+import { Calendar, Clock } from 'lucide-react'
+import { trackEvent } from '@/lib/tracking'
+import ComingSoon from '@/components/ui/coming-soon'
 
 export default function BlogClientPage() {
   if (blogPosts.length === 0) {
@@ -18,9 +18,12 @@ export default function BlogClientPage() {
       <div className="container mx-auto max-w-5xl px-6 sm:px-8 lg:px-12">
         {/* Header */}
         <div className="mb-20 space-y-5">
-          <h1 className="text-4xl font-bold text-foreground text-balance md:text-5xl lg:text-6xl">Blog</h1>
-          <p className="text-base text-muted-foreground leading-relaxed sm:text-lg md:text-xl">
-            Thoughts on AI engineering, full-stack development, and building production software.
+          <h1 className="text-balance text-4xl font-bold text-foreground md:text-5xl lg:text-6xl">
+            Blog
+          </h1>
+          <p className="text-base leading-relaxed text-muted-foreground sm:text-lg md:text-xl">
+            Thoughts on AI engineering, full-stack development, and building
+            production software.
           </p>
         </div>
 
@@ -30,10 +33,15 @@ export default function BlogClientPage() {
             <Link
               key={post.slug}
               href={`/blog/${post.slug}`}
-              onClick={() => trackEvent({ event: "blog_post_click", post: post.slug })}
+              onClick={() =>
+                trackEvent({
+                  event: 'blog_post_click',
+                  post: post.slug,
+                })
+              }
             >
-              <Card className="p-7 transition-all duration-300 hover:border-accent hover:shadow-lg group sm:p-8 md:p-10">
-                <h2 className="mb-4 text-2xl font-bold text-foreground text-balance transition-colors group-hover:text-accent md:text-3xl lg:text-4xl">
+              <Card className="group p-7 transition-all duration-300 hover:border-accent hover:shadow-lg sm:p-8 md:p-10">
+                <h2 className="mb-4 text-balance text-2xl font-bold text-foreground transition-colors group-hover:text-accent md:text-3xl lg:text-4xl">
                   {post.title}
                 </h2>
 
@@ -41,10 +49,10 @@ export default function BlogClientPage() {
                 <div className="mb-5 flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
                   <span className="flex items-center gap-2">
                     <Calendar className="h-4 w-4" />
-                    {new Date(post.date).toLocaleDateString("en-US", {
-                      year: "numeric",
-                      month: "long",
-                      day: "numeric",
+                    {new Date(post.date).toLocaleDateString('en-US', {
+                      year: 'numeric',
+                      month: 'long',
+                      day: 'numeric',
                     })}
                   </span>
                   {post.readTime && (

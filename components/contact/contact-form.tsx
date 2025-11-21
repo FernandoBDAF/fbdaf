@@ -32,12 +32,19 @@ export function ContactForm() {
 
     // Reset form after 3 seconds
     setTimeout(() => {
-      setFormState({ name: '', email: '', subject: '', message: '' })
+      setFormState({
+        name: '',
+        email: '',
+        subject: '',
+        message: '',
+      })
       setSubmitted(false)
     }, 3000)
   }
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormState((prev) => ({
       ...prev,
       [e.target.name]: e.target.value,
@@ -48,12 +55,26 @@ export function ContactForm() {
     return (
       <div className="space-y-3 py-8 text-center">
         <div className="bg-accent/10 mx-auto flex h-16 w-16 items-center justify-center rounded-full">
-          <svg className="h-8 w-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+          <svg
+            className="h-8 w-8 text-accent"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M5 13l4 4L19 7"
+            />
           </svg>
         </div>
-        <h3 className="text-xl font-semibold text-text-primary">Message Sent!</h3>
-        <p className="text-text-muted">Thank you for reaching out. I&apos;ll get back to you soon.</p>
+        <h3 className="text-xl font-semibold text-text-primary">
+          Message Sent!
+        </h3>
+        <p className="text-text-muted">
+          Thank you for reaching out. I&apos;ll get back to you soon.
+        </p>
       </div>
     )
   }
@@ -63,25 +84,64 @@ export function ContactForm() {
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
         <div className="space-y-2">
           <Label htmlFor="name">Name</Label>
-          <Input id="name" name="name" value={formState.name} onChange={handleChange} required placeholder="Your name" className="bg-bg" />
+          <Input
+            id="name"
+            name="name"
+            value={formState.name}
+            onChange={handleChange}
+            required
+            placeholder="Your name"
+            className="bg-bg"
+          />
         </div>
         <div className="space-y-2">
           <Label htmlFor="email">Email</Label>
-          <Input id="email" name="email" type="email" value={formState.email} onChange={handleChange} required placeholder="your.email@example.com" className="bg-bg" />
+          <Input
+            id="email"
+            name="email"
+            type="email"
+            value={formState.email}
+            onChange={handleChange}
+            required
+            placeholder="your.email@example.com"
+            className="bg-bg"
+          />
         </div>
       </div>
 
       <div className="space-y-2">
         <Label htmlFor="subject">Subject</Label>
-        <Input id="subject" name="subject" value={formState.subject} onChange={handleChange} required placeholder="What is this about?" className="bg-bg" />
+        <Input
+          id="subject"
+          name="subject"
+          value={formState.subject}
+          onChange={handleChange}
+          required
+          placeholder="What is this about?"
+          className="bg-bg"
+        />
       </div>
 
       <div className="space-y-2">
         <Label htmlFor="message">Message</Label>
-        <Textarea id="message" name="message" value={formState.message} onChange={handleChange} required placeholder="Your message..." rows={6} className="resize-none bg-bg" />
+        <Textarea
+          id="message"
+          name="message"
+          value={formState.message}
+          onChange={handleChange}
+          required
+          placeholder="Your message..."
+          rows={6}
+          className="resize-none bg-bg"
+        />
       </div>
 
-      <Button type="submit" size="lg" disabled={isSubmitting} className="w-full md:w-auto">
+      <Button
+        type="submit"
+        size="lg"
+        disabled={isSubmitting}
+        className="w-full md:w-auto"
+      >
         {isSubmitting ? 'Sending...' : 'Send Message'}
       </Button>
     </form>
