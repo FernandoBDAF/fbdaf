@@ -1,19 +1,19 @@
-"use client"
+'use client'
 
-import type React from "react"
+import type React from 'react'
 
-import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { Label } from "@/components/ui/label"
+import { useState } from 'react'
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import { Textarea } from '@/components/ui/textarea'
+import { Label } from '@/components/ui/label'
 
 export function ContactForm() {
   const [formState, setFormState] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
+    name: '',
+    email: '',
+    subject: '',
+    message: '',
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
@@ -26,13 +26,13 @@ export function ContactForm() {
     // In production, this would send to an API endpoint
     await new Promise((resolve) => setTimeout(resolve, 1000))
 
-    console.log("Form submitted:", formState)
+    console.log('Form submitted:', formState)
     setSubmitted(true)
     setIsSubmitting(false)
 
     // Reset form after 3 seconds
     setTimeout(() => {
-      setFormState({ name: "", email: "", subject: "", message: "" })
+      setFormState({ name: '', email: '', subject: '', message: '' })
       setSubmitted(false)
     }, 3000)
   }
@@ -46,9 +46,9 @@ export function ContactForm() {
 
   if (submitted) {
     return (
-      <div className="text-center py-8 space-y-3">
-        <div className="w-16 h-16 mx-auto bg-accent/10 rounded-full flex items-center justify-center">
-          <svg className="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <div className="space-y-3 py-8 text-center">
+        <div className="bg-accent/10 mx-auto flex h-16 w-16 items-center justify-center rounded-full">
+          <svg className="h-8 w-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
           </svg>
         </div>
@@ -60,63 +60,29 @@ export function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
         <div className="space-y-2">
           <Label htmlFor="name">Name</Label>
-          <Input
-            id="name"
-            name="name"
-            value={formState.name}
-            onChange={handleChange}
-            required
-            placeholder="Your name"
-            className="bg-bg"
-          />
+          <Input id="name" name="name" value={formState.name} onChange={handleChange} required placeholder="Your name" className="bg-bg" />
         </div>
         <div className="space-y-2">
           <Label htmlFor="email">Email</Label>
-          <Input
-            id="email"
-            name="email"
-            type="email"
-            value={formState.email}
-            onChange={handleChange}
-            required
-            placeholder="your.email@example.com"
-            className="bg-bg"
-          />
+          <Input id="email" name="email" type="email" value={formState.email} onChange={handleChange} required placeholder="your.email@example.com" className="bg-bg" />
         </div>
       </div>
 
       <div className="space-y-2">
         <Label htmlFor="subject">Subject</Label>
-        <Input
-          id="subject"
-          name="subject"
-          value={formState.subject}
-          onChange={handleChange}
-          required
-          placeholder="What is this about?"
-          className="bg-bg"
-        />
+        <Input id="subject" name="subject" value={formState.subject} onChange={handleChange} required placeholder="What is this about?" className="bg-bg" />
       </div>
 
       <div className="space-y-2">
         <Label htmlFor="message">Message</Label>
-        <Textarea
-          id="message"
-          name="message"
-          value={formState.message}
-          onChange={handleChange}
-          required
-          placeholder="Your message..."
-          rows={6}
-          className="bg-bg resize-none"
-        />
+        <Textarea id="message" name="message" value={formState.message} onChange={handleChange} required placeholder="Your message..." rows={6} className="resize-none bg-bg" />
       </div>
 
       <Button type="submit" size="lg" disabled={isSubmitting} className="w-full md:w-auto">
-        {isSubmitting ? "Sending..." : "Send Message"}
+        {isSubmitting ? 'Sending...' : 'Send Message'}
       </Button>
     </form>
   )

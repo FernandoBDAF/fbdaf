@@ -1,12 +1,12 @@
-import { Hero } from "@/components/sections/hero"
-import { FeaturedProjects } from "@/components/sections/featured-projects"
-import { AboutPreview } from "@/components/sections/about-preview"
+import { Hero } from '@/components/sections/hero'
+import { Projects } from '@/components/sections/projects'
+import { AboutPreview } from '@/components/sections/about-preview'
 
 export default function Home() {
   return (
     <>
       <Hero />
-      <FeaturedProjects />
+      <Projects />
       <AboutPreview />
     </>
   )

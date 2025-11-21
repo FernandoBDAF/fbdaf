@@ -5,36 +5,36 @@
 @layer base {
   :root {
     /* ===== Base ===== */
-    --color-bg: #0A0E14;
-    --color-surface: #141B22;
-    --color-border: #1E2A36;
-  
+    --color-bg: #0a0e14;
+    --color-surface: #141b22;
+    --color-border: #1e2a36;
+
     /* ===== Text ===== */
-    --color-text-primary: #F2F5FA;
-    --color-text-secondary: #A4B1C0;
-    --color-text-muted: #7E8B9C;
-  
+    --color-text-primary: #f2f5fa;
+    --color-text-secondary: #a4b1c0;
+    --color-text-muted: #7e8b9c;
+
     /* ===== Accent ===== */
-    --color-accent: #3BA9FF;
-    --color-accent-hover: #6DCEFF;
-    --color-accent-gradient-start: #3BA9FF;
-    --color-accent-gradient-end: #6DCEFF;
-  
+    --color-accent: #3ba9ff;
+    --color-accent-hover: #6dceff;
+    --color-accent-gradient-start: #3ba9ff;
+    --color-accent-gradient-end: #6dceff;
+
     /* ===== Code / Details ===== */
-    --color-code: #B9F28A;
-    --color-link: #3BA9FF;
-    --color-link-hover: #6DCEFF;
-  
+    --color-code: #b9f28a;
+    --color-link: #3ba9ff;
+    --color-link-hover: #6dceff;
+
     /* ===== Status ===== */
-    --color-success: #7CE38B;
-    --color-warning: #FFD66B;
-    --color-error: #FF6E6E;
-    --color-info: #6DCEFF;
-  
+    --color-success: #7ce38b;
+    --color-warning: #ffd66b;
+    --color-error: #ff6e6e;
+    --color-info: #6dceff;
+
     /* ===== Shadows / Radii ===== */
     --shadow-elevation-low: 0 2px 6px rgba(0, 0, 0, 0.25);
     --shadow-elevation-high: 0 4px 20px rgba(0, 0, 0, 0.35);
-  
+
     --radius-card: 1rem;
     --radius-button: 0.75rem;
   }
@@ -45,8 +45,15 @@
 
   body {
     @apply bg-bg text-text-primary antialiased;
-    font-family: "Inter", "Inter Fallback", system-ui, -apple-system, sans-serif;
-    font-feature-settings: "rlig" 1, "calt" 1;
+    font-family:
+      'Inter',
+      'Inter Fallback',
+      system-ui,
+      -apple-system,
+      sans-serif;
+    font-feature-settings:
+      'rlig' 1,
+      'calt' 1;
   }
 
   html {
@@ -87,7 +94,8 @@
 }
 
 @keyframes float {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0px);
   }
   50% {

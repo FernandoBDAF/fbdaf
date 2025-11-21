@@ -17,9 +17,9 @@ export function ProjectCard({ project }: ProjectCardProps) {
   }
 
   return (
-    <div className="group bg-surface border border-border/40 rounded-lg overflow-hidden hover:border-accent/50 transition-all duration-300 hover:shadow-lg hover:shadow-accent/10">
+    <div className="border-border/40 hover:border-accent/50 hover:shadow-accent/10 group overflow-hidden rounded-lg border bg-surface transition-all duration-300 hover:shadow-lg">
       {/* Project Image */}
-      <div className="relative aspect-video bg-muted overflow-hidden">
+      <div className="relative aspect-video overflow-hidden bg-muted">
         <Image
           src={project.image || "/placeholder.svg"}
           alt={project.title}
@@ -29,12 +29,12 @@ export function ProjectCard({ project }: ProjectCardProps) {
       </div>
 
       {/* Project Content */}
-      <div className="p-6 space-y-4">
-        <div className="space-y-2">
-          <h3 className="text-xl font-semibold text-text-primary group-hover:text-accent transition-colors">
+      <div className="space-y-5 p-6 sm:p-7">
+        <div className="space-y-3">
+          <h3 className="text-xl font-semibold leading-tight text-text-primary transition-colors group-hover:text-accent sm:text-2xl">
             {project.title}
           </h3>
-          <p className="text-text-muted text-sm leading-relaxed">{project.description}</p>
+          <p className="text-sm leading-relaxed text-text-muted sm:text-base">{project.description}</p>
         </div>
 
         {/* Tags */}
@@ -52,7 +52,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
         </div>
 
         {/* Actions */}
-        <div className="flex gap-3 pt-2">
+        <div className="flex gap-3 pt-3">
           {project.github && (
             <a
               href={project.github}

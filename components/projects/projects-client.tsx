@@ -29,11 +29,11 @@ export function ProjectsClient({ projects }: ProjectsClientProps) {
   }, [projects, selectedTag])
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-10">
       {/* Tag Filter */}
-      <div className="space-y-4">
-        <h2 className="text-sm font-semibold text-text-muted uppercase tracking-wide">Filter by Technology</h2>
-        <div className="flex flex-wrap gap-2">
+      <div className="space-y-5">
+        <h2 className="text-sm font-semibold uppercase tracking-wide text-text-muted">Filter by Technology</h2>
+        <div className="flex flex-wrap gap-2.5">
           <Badge
             variant={selectedTag === null ? "default" : "outline"}
             className={cn(
@@ -64,7 +64,7 @@ export function ProjectsClient({ projects }: ProjectsClientProps) {
       </div>
 
       {/* Projects Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:gap-10">
         {filteredProjects.map((project) => (
           <ProjectCard key={project.id} project={project} />
         ))}
@@ -72,8 +72,8 @@ export function ProjectsClient({ projects }: ProjectsClientProps) {
 
       {/* No Results Message */}
       {filteredProjects.length === 0 && (
-        <div className="text-center py-12">
-          <p className="text-text-muted">No projects found with the selected filter.</p>
+        <div className="py-16 text-center">
+          <p className="text-base text-text-muted sm:text-lg">No projects found with the selected filter.</p>
         </div>
       )}
     </div>
